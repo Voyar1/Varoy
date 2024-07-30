@@ -27,6 +27,9 @@ const config: Config = {
         },
       },
     },
+    backgroundImage: {
+      "hero-pattern": "url('/assets/Rectangle.png')",
+    },
   },
   plugins: [],
 };
