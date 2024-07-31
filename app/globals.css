@@ -6,6 +6,9 @@
   body {
     @apply bg-light-800;
   }
+  h1 {
+    @apply font-bold text-4xl;
+  }
 }
 
 @layer utilities {
