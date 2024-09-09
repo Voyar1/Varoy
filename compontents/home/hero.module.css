@@ -1,0 +1,35 @@
+/* Hero.module.css */
+
+.hero {
+  background: linear-gradient(to right, #f7f7f7, #e1e1e1);
+}
+.heroWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content {
+  max-width: 50%;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.25rem;
+  color: #555;
+}
+
+.imageContainer {
+  max-width: 45%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.heroImage {
+  border-radius: 10px;
+}

@@ -1,0 +1,72 @@
+/* Nav.module.css */
+
+.header {
+  background-color: #fff;
+  padding: 20px 40px;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  list-style: none; /* Removed list-style-type to be more specific */
+  margin: 0;
+  padding: 0;
+}
+
+.navItem:not(:first-child) {
+  margin-left: 20px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navLink:hover {
+  color: #777;
+}
+
+.ctaButton {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border-radius: 25px;
+  font-weight: bold;
+}
+
+.languageSwitcher {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.languageSwitcher span {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.languageSwitcher svg {
+  transition: transform 0.3s;
+}
+
+.languageSwitcher:hover svg {
+  transform: rotate(180deg);
+}
