@@ -1,27 +1,41 @@
-import React from "react";
 import Image from "next/image";
-import styles from "./Hero.module.css";
+import React from "react";
+import classes from "./Hero.module.css";
 
 const Hero = () => {
   return (
-    <section className={styles.hero}>
-      <div className={`${styles.heroWrapper} container`}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Strony na Miarę Twojego Biznesu</h1>
-          <p className={styles.description}>
+    <section className={`${classes.welcome}`}>
+      <div className={`${classes.main} container`}>
+        {/* Sekcja z tekstem */}
+        <div>
+          <h1 className={classes.bigText}>Strony na Miarę Twojego Biznesu</h1>
+          <p className={classes.info}>
             Profesjonalne strony internetowe dostosowane do SEO – więcej ruchu,
             więcej klientów, większe zyski.
           </p>
         </div>
-        <div className={styles.imageContainer}>
-          <Image
-            src="/path-to-image.png" // Replace with the actual path to your image
-            alt="Laptop, headphones, glasses, and coffee"
-            layout="responsive"
-            width={640} // Set based on the actual image size
-            height={360} // Set based on the actual image size
-            className={styles.heroImage}
-          />
+
+        {/* Sekcja z obrazem */}
+        <div className={classes.imagesWrapper}>
+          <div className={classes.image}>
+            <Image
+              src="/assets/kurier-przeprowadzki.png"
+              alt="back-card"
+              className={classes.imagePhoto}
+              height={400}
+              width={400}
+            />
+          </div>
+
+          <div className={classes.image}>
+            <Image
+              src="/assets/kurier-przeprowadzki.png"
+              alt="front-card"
+              className={classes.imagePhoto}
+              height={400}
+              width={400}
+            />
+          </div>
         </div>
       </div>
     </section>

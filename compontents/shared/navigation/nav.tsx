@@ -1,8 +1,14 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./Nav.module.css";
 
 const Nav = () => {
+  const [languageSwitch, setLanguageSwitch] = useState(false);
+
+  const switchLanguageHandler = () => {
+    setLanguageSwitch(!languageSwitch);
+  };
   return (
     <header className={styles.header}>
       <div className={`${styles.headerWrapper} container`}>
@@ -36,7 +42,10 @@ const Nav = () => {
               </Link>
             </li>
             <li className={styles.navItem}>
-              <div className={styles.languageSwitcher}>
+              <div
+                className={styles.languageSwitcher}
+                onClick={switchLanguageHandler}
+              >
                 <span>pl</span>
                 <svg
                   width="12"
@@ -44,6 +53,7 @@ const Nav = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className={languageSwitch ? styles.active : ""}
                 >
                   <path
                     d="M7 10L12 15L17 10H7Z"
