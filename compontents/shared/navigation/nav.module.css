@@ -3,6 +3,9 @@
 .header {
   background-color: #fff;
   padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .headerWrapper {
@@ -73,4 +76,13 @@
 
 .active {
   transform: rotate(180deg);
+}
+
+.headerScrolled {
+  background-color: rgba(248, 248, 248, 0.8); /* Transparentne tło */
+  padding: 10px 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px); /* Dodanie efektu rozmycia */
+  -webkit-backdrop-filter: blur(10px); /* Dla wsparcia w Safari */
+  transition: background-color 0.3s, padding 0.3s, backdrop-filter 0.3s;
 }

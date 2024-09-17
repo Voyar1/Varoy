@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./Nav.module.css";
 
@@ -9,8 +9,29 @@ const Nav = () => {
   const switchLanguageHandler = () => {
     setLanguageSwitch(!languageSwitch);
   };
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Funkcja nasłuchująca na przewijanie strony
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        // Zmień 50 na odpowiednią wartość, kiedy nawigacja ma się zmienić
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}
+    >
       <div className={`${styles.headerWrapper} container`}>
         <div className={styles.logo}>
           <Link href="/">VAROY</Link>

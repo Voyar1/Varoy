@@ -1,0 +1,43 @@
+.offerSection {
+  background-color: #fff;
+  padding: 3rem 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+
+.leftColumn {
+  flex: 0 1 auto;
+}
+
+.leftColumn h2 {
+  margin-bottom: 1.5rem;
+}
+
+.leftColumn h3 {
+  font-weight: normal;
+}
+
+.rightColumn {
+  background-color: #f3f3f3;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-main);
+  display: flex;
+  flex-direction: column;
+  flex: 2 1;
+}
+
+.rightColumn span {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  font-weight: bold;
+}
+
+.rightColumn p {
+  margin-bottom: 1.5rem;
+}

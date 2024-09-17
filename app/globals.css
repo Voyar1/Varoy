@@ -22,6 +22,9 @@
   --breakpoint-md: 48rem; /* 768px */
   --breakpoint-lg: 62rem; /* 992px */
   --breakpoint-xl: 75rem; /* 1200px */
+
+  /* Border radius */
+  --border-radius-main: 2rem;
 }
 
 /* Global box-sizing */
@@ -88,6 +91,12 @@ button:hover {
   margin-right: auto;
 }
 
+@media (max-width: 640px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
 @media (min-width: 640px) {
   .container {
     max-width: 640px;
@@ -102,18 +111,18 @@ button:hover {
 
 @media (min-width: 1024px) {
   .container {
-    max-width: 1024px;
+    max-width: 960px;
   }
 }
 
 @media (min-width: 1280px) {
   .container {
-    max-width: 1280px;
+    max-width: 1000px;
   }
 }
 
 @media (min-width: 1536px) {
   .container {
-    max-width: 1536px;
+    max-width: 1300px;
   }
 }
