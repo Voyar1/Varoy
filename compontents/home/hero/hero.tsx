@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import classes from "./Hero.module.css";
+import classes from "./hero.module.css";
 
 const Hero = () => {
   return (
