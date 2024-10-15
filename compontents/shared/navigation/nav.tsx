@@ -4,21 +4,15 @@ import Link from "next/link";
 import styles from "./Nav.module.css";
 
 const Nav = () => {
-  const [languageSwitch, setLanguageSwitch] = useState(false);
-
-  const switchLanguageHandler = () => {
-    setLanguageSwitch(!languageSwitch);
-  };
-
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Funkcja nasłuchująca na przewijanie strony
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        // Zmień 50 na odpowiednią wartość, kiedy nawigacja ma się zmienić
+      if (window.scrollY > 50 && !isMobileMenuOpen) {
         setIsScrolled(true);
-      } else {
+      } else if (!isMobileMenuOpen) {
         setIsScrolled(false);
       }
     };
@@ -27,7 +21,13 @@ const Nav = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isMobileMenuOpen]);
+
+  // Funkcja otwierająca/zamykająca mobilne menu
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <header
       className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}
@@ -36,52 +36,73 @@ const Nav = () => {
         <div className={styles.logo}>
           <Link href="/">VAROY</Link>
         </div>
-        <nav className={styles.nav}>
+
+        {/* Hamburger dla urządzeń mobilnych */}
+        <div
+          className={styles.hamburger}
+          onClick={toggleMobileMenu}
+        >
+          {!isMobileMenuOpen && (
+            <>
+              <span className={styles.bar}></span>
+              <span className={styles.bar}></span>
+              <span className={styles.bar}></span>
+            </>
+          )}
+        </div>
+
+        {/* Nawigacja dla desktop oraz mobilna */}
+        <nav
+          className={`${styles.nav} ${
+            isMobileMenuOpen ? styles.navMobileOpen : ""
+          }`}
+        >
+          {isMobileMenuOpen && ( // Wyświetl przycisk zamknięcia tylko w widoku mobilnym
+            <div className={styles.mobileMenuHeader}>
+              <button
+                className={styles.closeButton}
+                onClick={toggleMobileMenu}
+              >
+                &times;
+              </button>
+            </div>
+          )}
           <ul className={styles.navList}>
             <li className={styles.navItem}>
               <Link
-                href="#oferta"
+                href="#features"
                 className={styles.navLink}
+                onClick={toggleMobileMenu}
+              >
+                O mnie
+              </Link>
+            </li>
+            <li className={styles.navItem}>
+              <Link
+                href="#offer"
+                className={styles.navLink}
+                onClick={toggleMobileMenu}
               >
                 Oferta
               </Link>
             </li>
             <li className={styles.navItem}>
               <Link
-                href="#blog"
+                href="#projects"
                 className={styles.navLink}
+                onClick={toggleMobileMenu}
               >
-                Blog
+                Projekty
               </Link>
             </li>
             <li className={styles.navItem}>
               <Link
-                href="#contact"
+                href="/kontakt"
                 className={`${styles.navLink} ${styles.ctaButton}`}
+                onClick={toggleMobileMenu}
               >
                 Napisz do mnie
               </Link>
-            </li>
-            <li className={styles.navItem}>
-              <div
-                className={styles.languageSwitcher}
-                onClick={switchLanguageHandler}
-              >
-                <span>pl</span>
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className={languageSwitch ? styles.active : ""}
-                >
-                  <path
-                    d="M7 10L12 15L17 10H7Z"
-                    fill="black"
-                  />
-                </svg>
-              </div>
             </li>
           </ul>
         </nav>

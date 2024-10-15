@@ -1,6 +1,6 @@
 .footer {
   background-color: #f9f9f9;
-  padding-top: 60px; /* Zwiększ padding, aby dopasować wysunięcie kontaktu */
+  margin-top: 16rem;
 }
 
 .container {
@@ -9,6 +9,11 @@
   flex-wrap: wrap;
   margin: 0 auto;
   padding: 0 1rem;
+  position: relative;
+}
+
+.footerInfo {
+  width: 100%;
 }
 
 .brand h2 {
@@ -17,31 +22,38 @@
 
 .links {
   display: flex;
-  gap: 2rem;
 }
 
 .links h3 {
   margin-bottom: 1rem;
 }
 
-.links ul {
+.nav {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
 }
 
-.links li {
+.nav li {
   margin-bottom: 0.5rem;
 }
 
 .contact {
+  position: absolute;
   background-color: #d3d3d3;
   border-radius: 10px;
   padding: 1.5rem;
-  transform: translateY(-120px);
   z-index: 10; /* Upewnij się, że kontakt będzie nad stopką */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Dodaj cień dla efektu uniesienia */
   transition: transform 0.3s ease; /* Efekt płynnego przesuwania */
+  top: -60px;
+  right: 0;
 }
 
 .contact h3 {
@@ -74,4 +86,22 @@
   padding: 1rem 0;
   font-size: 0.875rem;
   background-color: #f9f9f9;
+}
+
+@media (max-width: 850px) {
+  .contact {
+    position: unset;
+    background-color: #d3d3d3;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .nav {
+    gap: 1rem;
+  }
+
+  .footer {
+    margin-top: 6rem;
+  }
 }

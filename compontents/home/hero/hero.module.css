@@ -45,11 +45,7 @@
 
 .info {
   line-height: 2rem;
-  font-size: 1.2rem;
-}
-
-.button {
-  margin-top: 3rem;
+  font-size: 1rem;
 }
 
 .imagesWrapper {
@@ -112,5 +108,17 @@
   }
   100% {
     transform: translate(0, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .bigText {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+
+  .info {
+    line-height: normal;
+    text-align: center;
   }
 }

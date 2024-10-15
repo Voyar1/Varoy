@@ -4,27 +4,32 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={`${styles.container} container`}>
-        <div className={styles.brand}>
-          <h2>VAROY</h2>
-        </div>
-        <div className={styles.links}>
-          <div>
-            <h3>Oferta</h3>
-            <ul>
-              <li>Konsultacje SEO</li>
-              <li>Kompleksowa obsługa SEO</li>
-              <li>Tworzenie stron internetowych</li>
-              <li>Audyty techniczne stron</li>
-            </ul>
+        <div className={styles.footerInfo}>
+          <div className={styles.brand}>
+            <h2>VAROY</h2>
           </div>
-          <div>
-            <h3>Menu</h3>
-            <ul>
-              <li>Blog</li>
-              <li>Kontakt</li>
-            </ul>
-          </div>
+          <ul className={styles.nav}>
+            <li>O mnie</li>
+            <li>Oferta</li>
+            <li>Projekty</li>
+
+            <li>Kontakt</li>
+          </ul>
+          {/* <div className={styles.links}>
+            <div>
+              <h3>Oferta</h3>
+              <ul>
+                <li>Konsultacje SEO</li>
+                <li>Kompleksowa obsługa SEO</li>
+                <li>Tworzenie stron internetowych</li>
+                <li>Audyty techniczne stron</li>
+              </ul>
+            </div>
+
+       
+          </div> */}
         </div>
+
         <div className={styles.contact}>
           <h3>Napisz do mnie</h3>
           <p>arkadiusz.r.wojciechowski@gmail.com</p>

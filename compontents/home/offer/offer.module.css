@@ -1,6 +1,6 @@
 .offerSection {
   background-color: #fff;
-  padding: 3rem 0;
+  padding: 3rem 0 4rem;
 }
 
 .container {
@@ -12,15 +12,34 @@
 }
 
 .leftColumn {
-  flex: 0 1 auto;
+  flex: 1 1;
 }
 
-.leftColumn h2 {
-  margin-bottom: 1.5rem;
+.offerListItem {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  gap: 1rem;
 }
 
 .leftColumn h3 {
   font-weight: normal;
+  font-size: 1.125rem;
+}
+
+.offerListItem svg {
+  width: 24px;
+  height: 24px;
+}
+
+.rightColumnWrapper {
+  position: relative;
+  flex: 2 1;
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
 }
 
 .rightColumn {
@@ -29,15 +48,145 @@
   border-radius: var(--border-radius-main);
   display: flex;
   flex-direction: column;
-  flex: 2 1;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  min-height: 200px;
 }
 
-.rightColumn span {
+.rightColumnMobile {
+  background-color: #f3f3f3;
+  padding: 1rem;
+  border-radius: var(--border-radius-main);
+  margin-top: 1rem;
+}
+
+/* Ukryj kartę mobilną na większych ekranach */
+@media (min-width: 769px) {
+  .rightColumnMobile {
+    display: none; /* Ukrywamy kartę mobilną */
+  }
+}
+
+.rightColumn span,
+.rightColumnMobile span {
   font-size: 1.25rem;
   margin-bottom: 1.25rem;
   font-weight: bold;
 }
 
-.rightColumn p {
+.rightColumn p,
+.rightColumnMobile p {
   margin-bottom: 1.5rem;
+}
+
+/* Animacja dla wstawiania karty */
+.columnEnter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.columnEnterActive {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease-in, transform 300ms ease-in;
+}
+
+.columnExit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.columnExitActive {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 300ms ease-in, transform 300ms ease-in;
+}
+
+/* Dostosowanie do urządzeń mobilnych poniżej 768px */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .leftColumn {
+    width: 100%;
+  }
+
+  .rightColumnWrapper {
+    display: none; /* Ukrywamy prawą kolumnę na mobilnych */
+  }
+
+  .offerListItem h3 {
+    font-size: 1.125rem;
+  }
+
+  .rightColumnMobile span {
+    font-size: 1rem;
+  }
+
+  .rightColumnMobile p {
+    font-size: 0.875rem;
+  }
+
+  /* Tylko efekt opacity na mobilnych */
+  .columnEnter {
+    opacity: 0;
+    transform: none;
+  }
+
+  .columnEnterActive {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }
+
+  .columnExit {
+    opacity: 1;
+    transform: none;
+  }
+
+  .columnExitActive {
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+  }
+}
+
+/* Dostosowanie dla tabletów między 768px a 1024px */
+@media (max-width: 1024px) {
+  .container {
+    gap: 3rem;
+  }
+
+  .leftColumn {
+    width: 100%;
+  }
+
+  .rightColumnWrapper {
+    width: 100%;
+  }
+
+  .offerListItem h3 {
+    font-size: 1.125rem;
+  }
+
+  .rightColumn {
+    padding: 1.25rem;
+  }
+
+  .rightColumn span {
+    font-size: 1.1rem;
+  }
+
+  .rightColumn p {
+    font-size: 1rem;
+  }
+}
+
+/* Ukryj mobilną kartę na desktopie */
+@media (min-width: 769px) {
+  .rightColumnWrapper-mobile {
+    display: none;
+  }
 }

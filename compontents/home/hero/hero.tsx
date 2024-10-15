@@ -8,10 +8,14 @@ const Hero = () => {
       <div className={`${classes.main} container`}>
         {/* Sekcja z tekstem */}
         <div>
-          <h1 className={classes.bigText}>Strony na Miarę Twojego Biznesu</h1>
+          <h1 className={classes.bigText}>
+            Specjalista SEO & Frontend Developer
+          </h1>
           <p className={classes.info}>
-            Profesjonalne strony internetowe dostosowane do SEO – więcej ruchu,
-            więcej klientów, większe zyski.
+            Jako specjalista SEO wykorzystuję swoje doświadczenie do tworzenia
+            stron doskonale dostosowanych do wymogów wyszukiwarek. Każda strona,
+            którą tworzę, jest nowoczesna, funkcjonalna i zoptymalizowana, aby
+            wspierać Twoją widoczność w sieci.
           </p>
         </div>
 
