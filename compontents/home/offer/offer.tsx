@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import styles from "./offer.module.css";
 import { motion, useAnimation } from "framer-motion";
@@ -49,7 +49,7 @@ const OfferSection = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
-  const handleOfferChange = (index) => {
+  const handleOfferChange = (index: SetStateAction<number>) => {
     setInProp(false);
     setTimeout(() => {
       setActiveOffer(index);
